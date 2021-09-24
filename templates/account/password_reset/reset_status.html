@@ -1,0 +1,21 @@
+{% extends "../sub_base.html" %}
+{% block title %}Reset status{% endblock %}
+{% block content %}
+
+<div class="container">
+        {% comment %}request.get_full_path which mention url, if email word in the url i.e.,.
+        password_reset/password_reset_email_confirm/ {% endcomment %}
+        {% if 'email' in request.get_full_path %}
+        <h3 class="mb-4">Password Reset Success</h3>
+        <p>Check your email for instructions</p>
+        {% endif %}
+
+        {% comment %}request.get_full_path which mention url, if complete word in the url i.e.,.
+        password_reset_confirm/Mg/password_reset_complete/ {% endcomment %}
+        {% if 'complete' in request.get_full_path %}
+        <h3 class="mb-4">Password Reset Success</h3>
+        <a href="{% url "account:login" %}">Login</a>
+        {% endif%}
+
+</div>>
+{% endblock %}
